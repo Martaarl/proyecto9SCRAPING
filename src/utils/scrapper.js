@@ -6,6 +6,12 @@ const fs = require("fs");
 
 const gamesArray = [];
 
+const blockModals = async (page) => {
+    try {
+        await page.click(".cookies-banner button")
+    } catch (error) {
+    }
+}
 
 const scrapper = async (url) => {
 
@@ -17,6 +23,8 @@ const scrapper = async (url) => {
 
     await page.setViewport({width: 600, height: 1024});
 
+    await blockModals(page);
+    
     repeat(page, browser);
 };
 

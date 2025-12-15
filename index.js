@@ -1,7 +1,6 @@
 require("dotenv").config();
 const gamesRouter = require("./src/api/routes/games");
 const { connectDB } = require("./src/config/db");
-//const { scrapper } = require("./src/utils/scrapper");
 
 const express = require("express");
 

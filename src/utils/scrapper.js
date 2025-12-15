@@ -6,8 +6,6 @@ const fs = require("fs");
 
 const gamesArray = [];
 
-const closeModals
-
 
 const scrapper = async (url) => {
 
@@ -30,7 +28,6 @@ const repeat = async (page, browser) => {
         let price;
         let title = await gameDiv.$eval(".title", (el) => el.textContent);
         let img =  await gameDiv.$eval("img", (el) => el.src);
-        //evaluate((el) => el.className); esta sería la forma de añadir solo el className detrás del await si no utilizamos el eval
         try {
             price = await gameDiv.$eval(".price", (el) => 
                 parseFloat(el.textContent.slice(0, el.textContent.length -1)));

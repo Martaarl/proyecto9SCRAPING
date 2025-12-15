@@ -40,7 +40,8 @@ const repeat = async (page, browser) => {
         const game = {
         title, 
         img, 
-        stock: false;
+        price,
+        stock: price ? true : false,
     }
    
       gamesArray.push(game);

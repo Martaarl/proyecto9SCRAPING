@@ -6,6 +6,8 @@ const fs = require("fs");
 
 const gamesArray = [];
 
+const closeModals
+
 
 const scrapper = async (url) => {
 
@@ -16,7 +18,7 @@ const scrapper = async (url) => {
     await page.goto("https://www.instant-gaming.com/es/pc/steam/tendencias/");
 
     await page.setViewport({width: 600, height: 1024});
-    
+
     repeat(page, browser);
 };
 

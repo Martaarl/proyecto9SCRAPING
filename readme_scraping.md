@@ -52,7 +52,7 @@ npm start
 El servidor escuchará por defecto en `http://localhost:3000`.
 
 ### Rutas disponibles
-- `POST /api/v1/games/robar_a_instant_gaming`  
+- `POST /api/v1/games/scrap`  
   Inserta todos los juegos del `games.json` en la base de datos MongoDB.
 - `GET /api/v1/games/`  
   Devuelve todos los juegos almacenados en la base de datos en formato JSON.

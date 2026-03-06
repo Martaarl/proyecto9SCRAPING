@@ -16,10 +16,11 @@ const blockModals = async (page) => {
 
 const scrapper = async (url) => {
 
+    //https://www.instant-gaming.com/es/pc/steam/tendencias/
     const browser = await puppeteer.launch({headless: false, devtools: true});
     const page = await browser.newPage();
 
-    await page.goto("https://www.instant-gaming.com/es/pc/steam/tendencias/");
+    await page.goto(url);
     await page.setViewport({width: 600, height: 1024});
 
     await blockModals(page);
@@ -38,7 +39,7 @@ const repeat = async (page, browser) => {
 
     await page.waitForSelector(".force-badge");
 
-    const arrayDivs = await page.waitForSelector(".force-badge")
+    const arrayDivs = await page.$$(".force-badge")
 
     for (const gameDiv of arrayDivs) {
         let price;
@@ -71,14 +72,13 @@ const repeat = async (page, browser) => {
     } catch (error) {
         console.log("No se pudo avanzar a la siguiente página", error.message)
         write(gamesArray);
-        await browser.close();
     }
     }
 
 const write = (gamesArray) => {
     fs.writeFile("games.json", JSON.stringify(gamesArray), (err) =>{
        if (err) {
-        console.err("Error escribiendo el archivo", err)
+        console.error("Error escribiendo el archivo", err)
        } else {
          console.log("Archivo escrito correctamente");
        }
